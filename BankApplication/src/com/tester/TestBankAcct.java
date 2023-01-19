@@ -12,10 +12,8 @@ public class TestBankAcct {
 
 	public static void main(String[] args) {
 
-		try {
+		try (Scanner sc = new Scanner(System.in);){
 			DBUtil.openConnection();
-
-			Scanner sc = new Scanner(System.in);
 
 			BankAcctImpl bankimpl=new BankAcctImpl();
 			
@@ -67,9 +65,10 @@ public class TestBankAcct {
 					break;
 				case 5:
 //					Deposite for specific account
-					System.out.println("Enter senderID , Receiver ID , Amount to transfer");
+					System.out.println("Enter acct id, Amount to deposite");
 					
-					
+					bankimpl.depositeMoney(sc.nextInt(), sc.nextDouble());
+					System.out.println("amount deposited");
 					
 					break;
 				case 6:

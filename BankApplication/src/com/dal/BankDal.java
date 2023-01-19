@@ -20,7 +20,7 @@ public interface BankDal {
 	
 		public String moneyTransfer(int sid,int did,double amount) throws SQLException;
 		
-		public void depositeMoney(double amount);
+		public void depositeMoney(int id,double amount);
 		
 		public void withdrawMoney(double amount);
 	

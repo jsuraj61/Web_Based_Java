@@ -128,10 +128,6 @@ public class BankAcctImpl implements BankDal {
 		return 0;
 	}
 	
-	
-
-
-
 	@Override
 	public String moneyTransfer(int sid, int did, double amount) throws SQLException {
 		// TODO Auto-generated method stub
@@ -146,14 +142,34 @@ public class BankAcctImpl implements BankDal {
 	}
 
 
-
 	@Override
-	public void depositeMoney(double amount) {
+	public void depositeMoney(int id,double amount) {
 		// TODO Auto-generated method stub
+		String query="select bal from accounts where id=?";
 		
+		try {
+			cstmt=con.prepareCall(query);
+			
+			cstmt.setInt(1, id);
+			rset=cstmt.executeQuery();
+			
+			if (rset.next()) {
+				Double temp=rset.getDouble(1)+amount;
+				query="update accounts set bal=? where id=?";
+				CallableStatement cstmt1=con.prepareCall(query);
+				cstmt1.setDouble(1, temp);
+				cstmt1.setInt(2, id);
+				cstmt1.executeUpdate();
+			}
+			else {
+				System.out.println("acctId Invalid");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
-
 
 
 	@Override
