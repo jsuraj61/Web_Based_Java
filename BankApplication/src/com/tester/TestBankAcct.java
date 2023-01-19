@@ -21,13 +21,13 @@ public class TestBankAcct {
 			
 			boolean exit = false;
 			while (!exit) {
-				System.out.println("Options: 1.Show all Accounts "
+				System.out.println("Options: 1.Show all Accounts \n"
 						+ "2.Add New Account "
-						+ "3.Update/Edit Account"
-						+ "4.Delete account "
-						+ "5.Deposite for specific account"
-						+ "6.Withdraw for specific account"
-						+ "7.Transfer Money from one account to Other Account"
+						+ "\n3.Update/Edit Account"
+						+ "\n4.Delete account "
+						+ "\n5.Deposite for specific account"
+						+ "\n6.Withdraw for specific account"
+						+ "\n7.Transfer Money from one account to Other Account"
 						+ "8.exit");
 				System.out.println("Enter your choice");
 				switch (sc.nextInt()) {
